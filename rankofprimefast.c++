@@ -19,7 +19,7 @@ int reverse_num(int n) {
     return rev;
 }
 
-// Generate primes using Sieve of Eratosthenes
+// Generate primes using Sieve algo
 vector<int> generate_primes_sieve(int limit) {
     vector<bool> isPrime(limit + 1, true);
     isPrime[0] = isPrime[1] = false;
@@ -33,7 +33,8 @@ vector<int> generate_primes_sieve(int limit) {
     }
 
     vector<int> primes;
-    for (int i = 2; i <= limit; i++) {
+    for (int i = 2
+        ; i <= limit; i++) {
         if (isPrime[i]) primes.push_back(i);
     }
     return primes;
