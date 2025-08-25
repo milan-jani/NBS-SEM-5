@@ -1,0 +1,44 @@
+dict in python is equal in c++ = map
+
+map contain key and value
+
+datatypes can be any for both
+
+keys are unique
+
+two types of maps: ordered and unordered
+
+ordered: it is any fix ordered
+TC: O(log n) for searching updating deleting
+
+
+
+unordered : random ordered
+TC:O(1) using hashing
+
+:: -> scope resolution operator
+
+//constructors
+
+constructor["one"]=1;
+constructor.insert(make_pair("two",2));
+constructor.insert({"three", 3});
+//
+//printing
+for (auto it = constructor.begin(); it != constructor.end(); ++it) {
+    cout << it->first << " : " << it->second << endl;
+}
+//another way to print
+for (const auto& pair : constructor) {
+    cout << pair.first << " : " << pair.second << endl;
+}
+//without pair
+for (const auto& [key, value] : constructor) {
+    cout << key << " : " << value << endl;
+}
+
+
+
+
+root(p1)/2 + log(p1) + root(p2)/2 + log(p2) = root(n)/2 + log(n)
+
