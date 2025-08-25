@@ -2,6 +2,7 @@
 #include <vector>
 #include <unordered_map>
 #include <cmath>
+#include <chrono>   // timing include
 using namespace std;
 
 void print(vector<int> v) {
@@ -40,28 +41,27 @@ vector<int> generate_primes_sieve(int limit) {
 }
 
 void rank_prime(unordered_map<int,int> &prime_rank, vector<int> primes) {
-   // vector<int> ans(1);
-   int ans;
+    int ans = -1;
     for (int p1 : primes) {
         int r1 = prime_rank[p1];
         int p2 = reverse_num(p1);
 
         if (p1 != p2 && prime_rank.find(p2) != prime_rank.end()) {
             int r2 = prime_rank[p2];
-
             if (p2 > p1 && reverse_num(r2) == r1) {
                 ans = p2;
             }
         }
     }
     cout << "Primes satisfy condition: "<< ans << endl;
-    //print(ans);
 }
 
 int main() {
     cout << "Enter the limit:\n";
     int limit;
     cin >> limit;
+
+    auto start = chrono::high_resolution_clock::now(); // start timing
 
     // Generate primes using sieve
     vector<int> primes = generate_primes_sieve(limit);
@@ -73,4 +73,10 @@ int main() {
     }
 
     rank_prime(prime_rank, primes);
+
+    auto end = chrono::high_resolution_clock::now();   // end timing
+    chrono::duration<double> diff = end - start;
+    cout << "Time taken = " << diff.count() << " sec\n";
+
+    return 0;
 }
