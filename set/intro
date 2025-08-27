@@ -1,0 +1,12 @@
+sets contains distinct elements only
+
+//example of sets
+set is 1D
+
+it can be ordered and unordered 
+ordered means sorted order 
+TC: O(log n) for searching updating deleting
+
+unordered : random ordered
+TC:O(1) using hashing
+what is hashing : it is a technique to convert a range of key values into a range of indexes of an array

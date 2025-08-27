@@ -25,7 +25,7 @@ vector<int> generate_primes_sieve(int limit) {
     vector<bool> isPrime(limit + 1, true);
     isPrime[0] = isPrime[1] = false;
 
-    for (int i = 2; i * i <= limit; i++) {
+    for (int i = 2; i *i <= limit; i++) {
         if (isPrime[i]) {
             for (int j = i * i; j <= limit; j += i) {
                 isPrime[j] = false;
