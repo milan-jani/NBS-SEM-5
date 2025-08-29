@@ -37,23 +37,28 @@ double perdiff(double a, double b) {
     return (abs(a - b) / b) * 100.0;
 }
 
-void solve(vector<int> arr){
+void solve(int range){
     vector<pair<int,double>> ans;
-    for(int i=0;i<arr.size();i++){
-        double real=sqrt(arr[i]);
-        int base=nearby_sqrt(arr[i]);
+    for(int i=1;i<range;i++){
+        double real=sqrt(i);
+        int base=nearby_sqrt(i);
         
-        double vedic=sqr_vedic(base,arr[i]);
+        double vedic=sqr_vedic(base,i);
         double per=perdiff(vedic,real);
-        ans.push_back({arr[i],per});
+        ans.push_back({i,per});
     }
     //sort in decreasing order of percentage difference
     sort(ans.begin(),ans.end(),[](pair<int,double> a,pair<int,double> b){
         return a.second>b.second;
     });
     cout<<"Number\tPercentage Difference"<<endl;
+
     for(pair<int,double> p:ans){
-        cout<<p.first<<"\t"<<fixed<<setprecision(3)<<p.second<<"%"<<endl;
+        // cout<<p.first<<"\t"<<fixed<<setprecision(3)<<p.second<<"%"<<endl;
+        //print the ans vector
+        if(p.second>1.0) 
+        cout<<p.first<<"\t"<<fixed<<setprecision(6)<<p.second<<"%"<<endl;
+
     }
 
 }
@@ -68,8 +73,12 @@ int main(){
     // cout<<"using sqrt funcn:"<<real<<endl;
     // cout<<"difference:"<<diff(ved,real)<<endl;
     // cout<<"percentage difference:"<<perdiff(ved,real)<<"%"<<endl;
-    vector<int> arr={65,76};
-    solve(arr);
+    //vector<int> arr={65,76};
+    int range;
+    cin>>range;
+    
+    
+    solve(range);
 
     return 0;
 }
