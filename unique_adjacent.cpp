@@ -33,5 +33,7 @@ int main() {
     cout << unique_Adjacent("aaaaab") << "\n";  
     cout << unique_Adjacent("abbbbccc") << "\n"; 
     cout << unique_Adjacent("abbbbcc") << "\n";
+    cout << unique_Adjacent("abacccc") << "\n";
+
     return 0;
 }
