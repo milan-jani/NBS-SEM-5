@@ -63,6 +63,7 @@ void solve(int range){
 
 }
 
+
 int main(){
     // int n=76;
     // int base= nearby_sqrt(n);
